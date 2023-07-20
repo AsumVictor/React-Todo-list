@@ -23,7 +23,9 @@
 
 # 📖Math Magician <a name="about-project"></a>
 
-"Math Magicians" is an online platform catering to enthusiasts of mathematics. This website operates as a Single Page App (SPA) and offers users the ability to perform basic calculations while also presenting random quotes pertaining to math.
+This repository contains a Todo List web application, an exercise from microverse, that allows users to manage and organize their tasks efficiently. The application is built using react.js, with local storage mimicking the role of backend
+
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -38,8 +40,12 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **DO simple calculation with online calculator**
-- **Read random math quotes**
+- Add Task: Users can add new tasks by entering a title and optional description.
+- View Tasks: The application displays a list of all the tasks with their corresponding details.
+- Mark as Complete: Users can mark tasks as complete, providing a sense of accomplishment.
+- Edit Task: Users can edit the title or description of existing tasks to keep the list up-to-date.
+- Delete Task: Tasks can be deleted individually when they are no longer needed.
+- Persistence: The application stores the tasks locally using browser storage to retain data between sessions.
 
 <!-- ## Live demo <a name="key-features"></a>
 
@@ -110,7 +116,7 @@ Github pages depolyment
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Add forms**
+- **Adding loging and rebost home page**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
