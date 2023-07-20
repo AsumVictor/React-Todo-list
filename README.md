@@ -47,9 +47,9 @@ This repository contains a Todo List web application, an exercise from microvers
 - Delete Task: Tasks can be deleted individually when they are no longer needed.
 - Persistence: The application stores the tasks locally using browser storage to retain data between sessions.
 
-<!-- ## Live demo <a name="key-features"></a>
+ ## Live demo <a name="key-features"></a>
 
-I have deployed the project of github. [Click to view the online version of my project](https://asumvictor.github.io/Porfolio/) -->
+I have deployed the project of github. [Click to view the live version of my project](https://aiasum-todo.netlify.app/) 
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
