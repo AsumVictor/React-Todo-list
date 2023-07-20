@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import {
-  HiBadgeCheck, HiCheck, HiPencilAlt, HiTrash,
+  HiBadgeCheck,
+  HiCheck,
+  HiPencilAlt,
+  HiTrash,
 } from 'react-icons/hi';
 import { AiOutlineUndo } from 'react-icons/ai';
 import { format } from 'timeago.js';
