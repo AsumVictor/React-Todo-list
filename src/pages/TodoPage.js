@@ -1,8 +1,8 @@
-import { useState } from "react";
-import TodoForm from "../components/TodoForm";
-import Todos from "../components/Todos.js";
-import UseTodo from "../hooks/UseTodo";
-import { toast } from "react-toastify";
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import TodoForm from '../components/TodoForm';
+import Todos from '../components/Todos';
+import UseTodo from '../hooks/UseTodo';
 
 function TodoPage() {
   const { todos, addTodo } = UseTodo();
@@ -19,22 +19,22 @@ function TodoPage() {
 
   const handleTodoEdit = (index, title) => {
     setTodoList((prev) => {
-      let newState = [...prev];
+      const newState = [...prev];
       newState[index] = {
         ...newState[index],
-        title: title,
+        title,
         updatedAt: new Date(),
       };
 
       addTodo(newState);
-      toast.info("Updated todo list successfully");
+      toast.info('Updated todo list successfully');
       return newState;
     });
   };
 
   const handleTodoCompleted = (index) => {
     setTodoList((prev) => {
-      let newState = [...prev];
+      const newState = [...prev];
       newState[index] = {
         ...newState[index],
         completed: !newState[index].completed,
@@ -42,20 +42,24 @@ function TodoPage() {
       };
 
       addTodo(newState);
-      toast.info("Updated todo list successfully");
+      toast.info('Updated todo list successfully');
       return newState;
     });
   };
 
   const handleTodoDelete = (id) => {
     setTodoList((prev) => {
-      let newState = todos.filter((i) => i.id !== id);
+      const newState = prev.filter((i) => i.id !== id);
       if (newState) {
         addTodo(newState);
-        toast.warn("You have deleted a todo");
+        toast.warn('You have deleted a todo');
         return newState;
       }
+
+      return 0;
     });
+
+    return null;
   };
 
   return (

@@ -1,11 +1,13 @@
-import { useState } from "react";
-import { HiBadgeCheck, HiCheck, HiPencilAlt, HiTrash } from "react-icons/hi";
-import { AiOutlineUndo } from "react-icons/ai";
-import {format} from 'timeago.js'
+import { useState } from 'react';
+import {
+  HiBadgeCheck, HiCheck, HiPencilAlt, HiTrash,
+} from 'react-icons/hi';
+import { AiOutlineUndo } from 'react-icons/ai';
+import { format } from 'timeago.js';
+import PropTypes from 'prop-types';
 
 function Todo({ todo, index, handleTodoOperations }) {
-  const [handleTodoEdit, handleTodoDelete, handleTodoCompleted] =
-    handleTodoOperations;
+  const [handleTodoEdit, handleTodoDelete, handleTodoCompleted] = handleTodoOperations;
   const [edit, setEdit] = useState(false);
   const [value, setValue] = useState(todo?.title);
 
@@ -24,16 +26,18 @@ function Todo({ todo, index, handleTodoOperations }) {
         )}
       </div>
       <button
+        type="button"
         className="col-span-1 py-1 text-red-700 h-[1.5cm] rounded-md hover:bg-red-100 flex justify-center items-center text-2xl"
         onClick={() => handleTodoDelete(todo.id)}
       >
         <HiTrash />
       </button>
       <button
+        type="button"
         className={`mt-2 col-span-5 py-1 ${
           !todo.completed
-            ? "text-emerald-700 bg-emerald-100 "
-            : "text-blue-700 bg-blue-100"
+            ? 'text-emerald-700 bg-emerald-100 '
+            : 'text-blue-700 bg-blue-100'
         }  h-[1cm] rounded-md flex justify-center items-center  gap-2`}
         onClick={() => handleTodoCompleted(index)}
       >
@@ -43,12 +47,13 @@ function Todo({ todo, index, handleTodoOperations }) {
           <HiBadgeCheck className="text-2xl" />
         )}
 
-        <span className="font-bold text-[16px]">{` ${
-          todo.completed ? "Mark as undone" : "Mark as done"
-        } `}</span>
+        <span className="font-bold text-[16px]">
+          {` ${todo.completed ? 'Mark as undone' : 'Mark as done'} `}
+        </span>
       </button>
       {edit ? (
         <button
+          type="button"
           className="mt-2 float-right col-span-5 py-1 text-blue-700 h-[1cm] rounded-md bg-blue-100 flex justify-center items-center gap-2"
           onClick={() => {
             handleTodoEdit(index, value);
@@ -60,6 +65,7 @@ function Todo({ todo, index, handleTodoOperations }) {
         </button>
       ) : (
         <button
+          type="button"
           className="mt-2 float-right col-span-5 py-1 text-blue-700 h-[1cm] rounded-md bg-blue-100 flex justify-center items-center gap-2"
           onClick={() => setEdit(true)}
         >
@@ -71,9 +77,9 @@ function Todo({ todo, index, handleTodoOperations }) {
       <p className="col-span-7 py-1  font-bold mt-2 flex flex-row gap-2 items-center">
         <span className="text-xl">Status:</span>
         <span
-          className={`${todo.completed ? "text-emerald-600" : "text-blue-600"}`}
+          className={`${todo.completed ? 'text-emerald-600' : 'text-blue-600'}`}
         >
-          {todo.completed ? "completed" : "pending"}
+          {todo.completed ? 'completed' : 'pending'}
         </span>
       </p>
 
@@ -83,5 +89,17 @@ function Todo({ todo, index, handleTodoOperations }) {
     </div>
   );
 }
+
+Todo.propTypes = {
+  handleTodoOperations: PropTypes.arrayOf(PropTypes.func).isRequired,
+  index: PropTypes.number.isRequired,
+  todo: PropTypes.PropTypes.shape({
+    completed: PropTypes.bool.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    updatedAt: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Todo;

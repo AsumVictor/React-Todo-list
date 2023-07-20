@@ -1,5 +1,3 @@
 import TodoPage from './pages/TodoPage';
 
-export {
-  TodoPage
-};
+export default TodoPage;

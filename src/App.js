@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { TodoPage } from "./Routes";
-import { ToastContainer } from "react-toastify";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import TodoPage from './Routes';
 
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
