@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { HiBadgeCheck, HiCheck, HiPencilAlt, HiTrash } from "react-icons/hi";
 import { AiOutlineUndo } from "react-icons/ai";
+import {format} from 'timeago.js'
+
 function Todo({ todo, index, handleTodoOperations }) {
   const [handleTodoEdit, handleTodoDelete, handleTodoCompleted] =
     handleTodoOperations;
@@ -75,8 +77,8 @@ function Todo({ todo, index, handleTodoOperations }) {
         </span>
       </p>
 
-      <p className="col-span-3 py-1 text-[14px] font-bold text-gray-600 mt-2 text-right">
-        Added 3 min ago
+      <p className="col-span-3 py-1 text-[11px] md:text-[14px] font-bold text-gray-600 mt-2 text-right">
+        {`Updated ${format(todo.updatedAt)}`}
       </p>
     </div>
   );
