@@ -16,10 +16,7 @@ function UseTodo() {
   const [todos, setTodos] = useState(getTodos());
 
   const addTodo = (data) => {
-    const newState = [...todos, data];
-    localStorage.setItem("todos", JSON.stringify(newState));
-    setTodos(newState);
-    toast.success("You have successfuly added new todo");
+    localStorage.setItem("todos", JSON.stringify(data));
   };
 
   const removeTodo = async (id) => {

@@ -1,6 +1,7 @@
 import Todo from "../components/Todo.js";
 
-function Todos({ todoList }) {
+function Todos({ todoList, handleTodoOperations }) {
+    
   return (
     <div className="w-full  py-2 items-center mt-10 flex flex-col gap-2 ">
       <h2 className="font-bold underline text-xl">All todos</h2>
@@ -11,7 +12,7 @@ function Todos({ todoList }) {
       )}
       {todoList?.length !== 0 &&
         todoList?.map((i, index) => {
-          return <Todo todo={i} index={index} />;
+          return <Todo todo={i} index={index} handleTodoOperations={handleTodoOperations} />;
         })}
     </div>
   );

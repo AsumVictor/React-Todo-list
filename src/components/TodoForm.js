@@ -22,7 +22,6 @@ function TodoForm({ handleTodoChange }) {
       toast.error("Please todo title cannot be empty");
       return 0;
     }
-    addTodo(todo);
     handleTodoChange(todo);
     setValue("");
   };
