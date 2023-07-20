@@ -80,7 +80,7 @@ function Todo({ todo, index, handleTodoOperations }) {
       <p className="col-span-7 py-1  font-bold mt-2 flex flex-row gap-2 items-center">
         <span className="text-xl">Status:</span>
         <span
-          className={`${todo.completed ? 'text-emerald-600' : 'text-blue-600'}`}
+          className={todo.completed ? 'text-emerald-600' : 'text-blue-600'}
         >
           {todo.completed ? 'completed' : 'pending'}
         </span>
