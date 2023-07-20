@@ -9,8 +9,12 @@ function TodoPage() {
   const [todoList, setTodoList] = useState(todos);
 
   const handleTodoList = (data) => {
-    setTodoList([...todos, data]);
-    addTodo([...todos, data]);
+    setTodoList((prev) => {
+      let newState = [...prev];
+      newState = [...newState, data];
+      addTodo(newState);
+      return newState;
+    });
   };
 
   const handleTodoEdit = (index, title) => {
