@@ -7,7 +7,7 @@ import {
   HiTrash,
 } from "react-icons/hi";
 
-function Todo() {
+function Todo({ todo, index }) {
   const [edit, setEdit] = useState(false);
 
   return (
@@ -16,12 +16,11 @@ function Todo() {
         {edit ? (
           <input
             type="text"
+            value={todo.title}
             className="outline-none border-2 border-blue-600 h-full w-full rounded-md px-2 font-bold"
           />
         ) : (
-          <p className="font-bold">
-            Lorem The boy is my ego oof the tornament of bussu
-          </p>
+          <p className="font-bold">{todo.title}</p>
         )}
       </div>
       <button className="col-span-1 py-1 text-red-700 h-[1.5cm] rounded-md hover:bg-red-100 flex justify-center items-center text-2xl">
@@ -37,16 +36,22 @@ function Todo() {
           <span className="font-bold text-[18px]">Done editing</span>
         </button>
       ) : (
-        <button className="mt-2 float-right col-span-5 py-1 text-blue-700 h-[1cm] rounded-md bg-blue-100 flex justify-center items-center gap-2"
-        onClick={()=>setEdit(true)}
+        <button
+          className="mt-2 float-right col-span-5 py-1 text-blue-700 h-[1cm] rounded-md bg-blue-100 flex justify-center items-center gap-2"
+          onClick={() => setEdit(true)}
         >
           <HiPencilAlt className="text-2xl" />
           <span className="font-bold text-[18px]">Edit</span>
         </button>
       )}
 
-      <p className="col-span-7 py-1 text-xl font-bold mt-2">
-        Status: completed
+      <p className="col-span-7 py-1  font-bold mt-2 flex flex-row gap-2 items-center">
+       <span className='text-xl'>Status:</span> 
+        <span
+          className={`${todo.completed ? "text-emerald-600" : "text-blue-600"}`}
+        >
+          {todo.completed ? "completed" : "pending"}
+        </span>
       </p>
 
       <p className="col-span-3 py-1 text-[14px] font-bold text-gray-600 mt-2 text-right">

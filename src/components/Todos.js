@@ -11,7 +11,7 @@ function Todos({ todoList }) {
       )}
       {todoList?.length !== 0 &&
         todoList?.map((i, index) => {
-          return <Todo />;
+          return <Todo todo={i} index={index} />;
         })}
     </div>
   );
