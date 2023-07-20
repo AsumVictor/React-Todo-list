@@ -1,21 +1,25 @@
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 function UseTodo() {
-  const [todos, setTodos] = useState(null);
-
-  const getTodos = async () => {
-    let localTodos = await localStorage.getItem("todos");
+  const getTodos = () => {
+    let todos;
+    let localTodos = localStorage.getItem("todos");
     if (localTodos) {
-      setTodos(JSON.parse(localTodos));
+      todos = JSON.parse(localTodos);
     } else {
-      setTodos([]);
+      todos = [];
     }
-  };
 
-  const addTodo = async (data) => {
+    return todos;
+  };
+  const [todos, setTodos] = useState(getTodos());
+
+  const addTodo = (data) => {
     const newState = [...todos, data];
     localStorage.setItem("todos", JSON.stringify(newState));
     setTodos(newState);
+    toast.success("You have successfuly added new todo");
   };
 
   const removeTodo = async (id) => {
@@ -34,7 +38,7 @@ function UseTodo() {
     setTodos(newState);
   };
 
-  return { getTodos, todos, addTodo, removeTodo, ComplteTodo };
+  return { getTodos,todos, setTodos, addTodo, removeTodo, ComplteTodo };
 }
 
 export default UseTodo;

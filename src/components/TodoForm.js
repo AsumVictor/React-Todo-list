@@ -1,17 +1,30 @@
 import { useState } from "react";
 import UseTodo from "../hooks/UseTodo";
-function TodoForm() {
-  const [value, setValue] = useState(null);
+import { toast } from "react-toastify";
+
+function TodoForm({ handleTodoChange }) {
+  const [value, setValue] = useState("");
   const [error, setError] = useState(false);
   const { addTodo } = UseTodo();
+
+  const todo = {
+    id: Math.ceil(Math.random() * 1000),
+    title: value,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    completed: false,
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (value.trim().length === 0) {
       setError(true);
+      toast.error("Please todo title cannot be empty");
       return 0;
     }
-    console.log("first");
+    addTodo(todo);
+    handleTodoChange(todo);
+    setValue("");
   };
 
   return (
@@ -22,6 +35,11 @@ function TodoForm() {
       <input
         type="text"
         name="todo-text"
+        value={value}
+        onChange={(e) => {
+          setError(false);
+          setValue(e.target.value);
+        }}
         className={`col-span-3 border outline-none rounded-md ${
           error
             ? "border-red-800 placeholder:text-red-700"
