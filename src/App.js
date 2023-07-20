@@ -1,12 +1,12 @@
-import { BrowserRouter, Route } from 'react-router-dom';
-import {
-  TodoPage
-} from './Routes';
+import { BrowserRouter,Routes, Route } from "react-router-dom";
+import { TodoPage } from "./Routes";
 
 function App() {
   return (
     <BrowserRouter>
-          <Route path="/" element={<TodoPage />} />
+      <Routes>
+        <Route path="/" element={<TodoPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }
