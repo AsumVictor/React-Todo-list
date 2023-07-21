@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { toast } from "react-toastify";
-import PropTypes from "prop-types";
-import { nanoid } from "nanoid";
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 function TodoForm({ handleTodoChange }) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [error, setError] = useState(false);
 
   const todo = {
@@ -19,11 +19,11 @@ function TodoForm({ handleTodoChange }) {
     e.preventDefault();
     if (value.trim().length === 0) {
       setError(true);
-      toast.error("Please todo title cannot be empty");
+      toast.error('Please todo title cannot be empty');
       return 0;
     }
     handleTodoChange(todo);
-    setValue("");
+    setValue('');
 
     return null;
   };
@@ -31,11 +31,11 @@ function TodoForm({ handleTodoChange }) {
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
-      className="w-full grid grid-cols-4 h-[1.3cm] gap-2 620px:gap-4 bg-white top-5 sticky"
+      className='w-full grid grid-cols-4 h-[1.3cm] gap-2 620px:gap-4 bg-white top-5 sticky'
     >
       <input
-        type="text"
-        name="todo-text"
+        type='text'
+        name='todo-text'
         value={value}
         onChange={(e) => {
           setError(false);
@@ -43,14 +43,14 @@ function TodoForm({ handleTodoChange }) {
         }}
         className={`col-span-3 border outline-none rounded-md ${
           error
-            ? "border-red-800 placeholder:text-red-700"
-            : "border-emerald-800"
+            ? 'border-red-800 placeholder:text-red-700'
+            : 'border-emerald-800'
         }  px-2 placeholder:font-semibold font-semibold`}
-        placeholder="Type todo title here ..."
+        placeholder='Type todo title here ...'
       />
       <button
-        type="submit"
-        className=" col-span-1 bg-emerald-800 text-white font-bold rounded-md"
+        type='submit'
+        className=' col-span-1 bg-emerald-800 text-white font-bold rounded-md'
       >
         Add todo
       </button>
