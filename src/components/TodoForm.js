@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { toast } from 'react-toastify';
-import PropTypes from 'prop-types';
+import { useState } from "react";
+import { toast } from "react-toastify";
+import PropTypes from "prop-types";
+import { nanoid } from "nanoid";
 
 function TodoForm({ handleTodoChange }) {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const [error, setError] = useState(false);
 
   const todo = {
-    id: Math.ceil(Math.random() * 1000),
+    id: nanoid(8),
     title: value,
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -18,11 +19,11 @@ function TodoForm({ handleTodoChange }) {
     e.preventDefault();
     if (value.trim().length === 0) {
       setError(true);
-      toast.error('Please todo title cannot be empty');
+      toast.error("Please todo title cannot be empty");
       return 0;
     }
     handleTodoChange(todo);
-    setValue('');
+    setValue("");
 
     return null;
   };
@@ -42,8 +43,8 @@ function TodoForm({ handleTodoChange }) {
         }}
         className={`col-span-3 border outline-none rounded-md ${
           error
-            ? 'border-red-800 placeholder:text-red-700'
-            : 'border-emerald-800'
+            ? "border-red-800 placeholder:text-red-700"
+            : "border-emerald-800"
         }  px-2 placeholder:font-semibold font-semibold`}
         placeholder="Type todo title here ..."
       />
